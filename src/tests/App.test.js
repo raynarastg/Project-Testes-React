@@ -26,6 +26,12 @@ describe('Testa componente App.js', () => {
   });
   test('é redirecionada para Pokémons Favoritados, ao clicar no link', () => {
     const { history } = renderWithRouter(<App />);
+    userEvent.click(screen.getByText(/favorite pokémons/i));
+    const path = history.location.pathname;
+    expect(path).toEqual('/favorites');
+  });
+  test('aplicação é redirecionada para a página Not Found', () => {
+    const { history } = renderWithRouter(<App />);
     history.push('/not-found');
     const path = history.location.pathname;
     expect(path).toEqual('/not-found');
