@@ -34,6 +34,7 @@ describe('Teste o componente <Pokedex.js />', () => {
   });
   test('O texto do botão deve corresponder ao nome do tipo, ex. Psychic', () => {
     renderWithRouter(<App />);
+    // Daniel Rubens me deu uma luz nessa parte
     const array = ['Electric', 'Fire', 'Bug', 'Poison', 'Psychic', 'Normal', 'Dragon'];
     array.forEach((el) => {
       const buttonTypeFilter = screen.getByRole('button', { name: el });
