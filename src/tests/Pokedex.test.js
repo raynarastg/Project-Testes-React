@@ -53,4 +53,12 @@ describe('Teste o componente <Pokedex.js />', () => {
     const typeElectric = screen.getByTestId('pokemon-type');
     expect(typeElectric).toBeInTheDocument();
   });
+
+  test('', () => {
+    renderWithRouter(<App />);
+    const btnAll = screen.getByRole('button', { name: 'All' });
+    userEvent.click(btnAll);
+    const pokemon = screen.getByTestId('pokemon-name');
+    expect(pokemon).toHaveTextContent(/pikachu/i);
+  });
 });
