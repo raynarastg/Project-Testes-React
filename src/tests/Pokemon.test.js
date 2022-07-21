@@ -43,7 +43,7 @@ describe('Teste o componente <Pokemon.js />', () => {
   });
 
   test('Teste se existe um ícone de estrela nos pokémons favoritados', () => {
-    // Laura Lana me auxiliou em algumas partes nesse teste.
+    /// / Laura Lana me auxiliou em algumas partes nesse teste.
     renderWithRouter(<App />);
     const linkMoreDetails = screen.getByRole('link', { name: /more details/i });
     expect(linkMoreDetails).toBeInTheDocument();
