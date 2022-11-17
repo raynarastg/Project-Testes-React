@@ -6,7 +6,7 @@ import data from '../data';
 import renderWithRouter from '../renderWithRouter';
 
 describe('Teste o componente <Pokemon.js />', () => {
-  test('Teste se é renderizado um card com as informações de determinado pokémon', () => {
+  test('Se é renderizado um card com as informações de determinado pokémon', () => {
     renderWithRouter(<App />);
     const pokemonName = screen.getByTestId('pokemon-name');
     expect(pokemonName).toHaveTextContent(`${data[0].name}`);
@@ -19,13 +19,13 @@ describe('Teste o componente <Pokemon.js />', () => {
     expect(pokemonImage).toHaveAttribute('alt', `${data[0].name} sprite`);
   });
 
-  test('o card do pokémon indicado contém um link de navegação para detalhes', () => {
+  test('Se o card do pokémon indicado contém um link de navegação para detalhes', () => {
     renderWithRouter(<App />);
     const linkMoreDetails = screen.getByRole('link', { name: /more details/i });
     expect(linkMoreDetails).toBeInTheDocument();
   });
 
-  test('se ao clicar no link de navegação, é feito o redirecionamento detalhes', () => {
+  test('Se ao clicar no link de navegação, é feito o redirecionamento detalhes', () => {
     renderWithRouter(<App />);
     const linkNav = screen.getByRole('link', { name: /more details/i });
     userEvent.click(linkNav);
@@ -33,7 +33,7 @@ describe('Teste o componente <Pokemon.js />', () => {
     expect(textDetails).toBeDefined();
   });
 
-  test('a URL exibida no navegador muda para /pokemon/<id>', () => {
+  test('Se a URL exibida no navegador muda para /pokemon/<id>', () => {
     const { history } = renderWithRouter(<App />);
     const linkMoreDetails = screen.getByRole('link', { name: /more details/i });
     expect(linkMoreDetails).toBeInTheDocument();
@@ -42,8 +42,7 @@ describe('Teste o componente <Pokemon.js />', () => {
     expect(path).toBe(`/pokemons/${data[0].id}`);
   });
 
-  test('Teste se existe um ícone de estrela nos pokémons favoritados', () => {
-    /// / Laura Lana me auxiliou em algumas partes nesse teste.
+  test('Se existe um ícone de estrela nos pokémons favoritados', () => {
     renderWithRouter(<App />);
     const linkMoreDetails = screen.getByRole('link', { name: /more details/i });
     expect(linkMoreDetails).toBeInTheDocument();

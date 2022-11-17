@@ -3,15 +3,15 @@ import React from 'react';
 import App from '../App';
 import renderWithRouter from '../renderWithRouter';
 
-describe('', () => {
-  test('se página contém h2 com o texto Page requested not found 😭', () => {
+describe('Testa aplicção not found', () => {
+  test('Se página contém h2 com o texto Page requested not found 😭', () => {
     const { history } = renderWithRouter(<App />);
     history.push('/notFound');
-    // const text = screen.getByRole('heading', { name: /Page requested not found 😭/i, level: 2 });
     const textH2 = screen.getByRole('heading', { level: 2 });
     expect(textH2).toHaveTextContent(/Page requested not found 😭/i);
   });
-  test('Teste se a página mostra a imagem https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif', () => {
+
+  test('Se a página mostra a imagem https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif', () => {
     const { history } = renderWithRouter(<App />);
     history.push('/notFound');
     const img = screen.getAllByRole('img');

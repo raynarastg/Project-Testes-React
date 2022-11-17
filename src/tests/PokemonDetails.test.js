@@ -6,7 +6,7 @@ import data from '../data';
 import renderWithRouter from '../renderWithRouter';
 
 describe('Teste o componente <PokemonDetails.js />', () => {
-  test('as informações detalhadas do pokémon selecionado são mostradas', () => {
+  test('Se as informações detalhadas do pokémon selecionado são mostradas', () => {
     renderWithRouter(<App />);
     const moreDetails = screen.getByRole('link', { name: /more details/i });
     userEvent.click(moreDetails);
@@ -19,7 +19,7 @@ describe('Teste o componente <PokemonDetails.js />', () => {
     expect(paragrafoDetalhes).toBeDefined();
   });
 
-  test('existe na página uma seção com mapas contendo as localizações do pokémon', () => {
+  test('Existe na página uma seção com mapas contendo as localizações do pokémon', () => {
     renderWithRouter(<App />);
     const moreDetails = screen.getByRole('link', { name: /more details/i });
     userEvent.click(moreDetails);
@@ -39,7 +39,7 @@ describe('Teste o componente <PokemonDetails.js />', () => {
     expect(altLocation).toBeDefined();
   });
 
-  test('se o usuário pode favoritar um pokémon através da página de detalhes', () => {
+  test('Se o usuário pode favoritar um pokémon através da página de detalhes', () => {
     renderWithRouter(<App />);
     const linkMoreDetails = screen.getByRole('link', { name: /more details/i });
     expect(linkMoreDetails).toBeInTheDocument();
